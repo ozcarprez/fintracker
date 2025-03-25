@@ -29,7 +29,7 @@ if uploaded_file:
             st.error("No se encontró la columna de referencia en el archivo.")
         else:
             # Detectar cualquier número de 2 a 5 dígitos y convertirlo a texto con ceros a la izquierda
-            match = re.search(r"(\\d{2,5})", pregunta)
+            match = re.search(r"(\d{2,5})", pregunta)
             if match:
                 ref_input = match.group(1).zfill(5)  # "46" -> "00046"
                 df[ref_col] = df[ref_col].astype(str).str.zfill(5)  # Asegurar que todas las referencias en la tabla estén igual
